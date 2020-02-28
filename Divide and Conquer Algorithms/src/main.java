@@ -7,6 +7,6 @@ public class main {
 		System.out.println("Please enter an integer");
 		input = scan.nextInt();
 		
-		
+		//Testing if contributtions show
 	}
 }

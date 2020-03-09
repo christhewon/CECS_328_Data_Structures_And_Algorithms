@@ -4,16 +4,22 @@ public class main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int input;
+		
+		//Testing squareRootMethos
 		for (int i = 0; i < 3; i++) {
 			System.out.println("Please enter an integer");
 			input = scan.nextInt();
 			System.out.println("The square root is: " + squareRoots(input));
 		}
 		
+		//Testing missingNumber method
+		int[] arr = new int[]{0,1,2,3,4,5,6,7,10};
+		System.out.println(missingNumber(arr, 10));
 		
 		
 	}
 	
+	/*
 	public static int squareRoot(int n) {
 		int half = n/2;
 		int quarter = n/4;
@@ -26,7 +32,7 @@ public class main {
 			}
 		}
 		return 0;
-	}
+	}*/
 	
 	public static int squareRoots(int n) {
 		int left = 0;
@@ -62,18 +68,14 @@ public class main {
 		int middle = 0;
 		while (left <= right) {
 			middle = (left + right)/2;
-			if (n[middle] == m/2) {
-				return true;
-			}
-			if (n[middle] < key) {
+			if (n[middle] == middle) {
 				left = middle + 1;
 			}
-			else {
+			if (n[middle] > middle) {
 				right = middle - 1;
 			}
-			
 		}
-		return false;
+		return middle;
 	}
 	
 }

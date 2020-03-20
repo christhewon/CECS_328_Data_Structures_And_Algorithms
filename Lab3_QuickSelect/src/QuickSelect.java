@@ -7,7 +7,10 @@ public class QuickSelect {
 			return arr[pivIndex];
 		}
 		else {
-			if (k > pivIndex) {
+			if (k == arr.length) {
+				return arr[max];
+			}
+			else if (k > pivIndex) {
 				return QuickSelect(arr, pivIndex + 1, max, k);
 			}
 			else {
@@ -16,47 +19,221 @@ public class QuickSelect {
 		}
 	}
 	
-	
-	
-	/*private int Partition(int[] arr) { //star and end are indexes
-		int i = -1;
-		int pivot = arr[arr.length - 1];
-		for (int j = 0; j < arr.length - 1; j++) {
-			if (arr[j] < pivot) {
-				i++;
-				
-				//swaping element i and j
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-				
+	public int[] QuickSelectMaxNums(int[] arr, int min, int max,int k) {
+		double half = arr.length/2.00;
+		int pivIndex = partition(arr, min, max);
+		int[] maxNums = new int[k];
+		int len = arr.length;
+		int loc = len - k;
+		
+		//METHOD 3
+		if (pivIndex == loc) {
+			for (int i = 0; i < k; i++) {
+				maxNums[i] = arr[loc];
+				loc++;
+			}
+			return maxNums;
+		}
+		else {
+			/*if (k == len) {
+				return arr;
+			}*/
+			if (pivIndex < loc) { //pivIndex < loc
+				return QuickSelectMaxNums(arr, pivIndex + 1, max, k);
+			}
+			else {
+				return QuickSelectMaxNums(arr, min, pivIndex - 1, k);
 			}
 		}
-		int temp = arr[i+1];
-		arr[i+1] = arr[arr.length - 1];
-		arr[arr.length - 1] = temp;
-		return i - 1;
-	}*/
-	
-	
-	private int partition(int[] arr, int start, int end) { //star and end are indexes
-		int i = start - 1;
-		int pivot = arr[end];
-		for (int j = start; j < end; j++) {
-			if (arr[j] < pivot) {
-				i++;
-				
-				//swaping element i and j
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-				
+	 
+	 
+		//METHOD 2
+		/*if (k == pivIndex) {
+			if (k == half) {
+			
+			}
+			else if (k < half) {
+			
+			}
+			else {
+			
 			}
 		}
-		int temp = arr[i+1];
-		arr[i+1] = arr[end];
-		arr[end] = temp;
-		return i + 1;
+		else {
+			if (k == arr.length) {
+				return arr;
+			}
+			if (k > pivIndex) {
+				return QuickSelectMaxNums(arr, pivIndex + 1, max, k);
+			}
+			else {
+				return QuickSelectMaxNums(arr, min, pivIndex - 1, k);
+			}
+		}*/
+		
+		
+		//METHOD 1
+		/*if (k == pivIndex) {
+			for (int i = 0; i < k; i++) {
+				maxNums[i] = arr[pivIndex];
+				pivIndex++;
+			}
+			return maxNums;
+		}
+		else {
+			if (k == arr.length) {
+				return arr;
+			}
+			if (k > pivIndex) {
+				return QuickSelectMaxNums(arr, pivIndex + 1, max, k);
+			}
+			else {
+				return QuickSelectMaxNums(arr, min, pivIndex - 1, k);
+			}
+		}*/
 	}
 	
+	private int partition(int[] arr, int start, int end) {
+		//LAST ONE
+		int pivot = arr[end];
+		int length = arr.length;
+		int j = 0;      //This is gonna be the location that switched with the pivot
+		int k = end-1;
+		int temp = 0;
+		for(int i = 0; i < length-1; i++ ) {
+			if(arr[j] < pivot) { //basically if the number is smaller than the pivot, we dont car and move to next index
+				j++;
+			}
+			else {
+				while (k > j) {              //Now that we have a number greater than the pivot, we want to find a
+					if(arr[k] < pivot) {      //number on the other side of the array that is smaller than the pivot
+						temp = arr[k];         //and swap them
+						arr[k] = arr[j];
+						arr[j] = temp;
+					}
+					k--;
+				}
+			}
+		}
+		temp = arr[end];                //All the values to the left of j are less than the pivot, so the pivot goes
+		arr[end] = arr[j];               //at j
+		arr[j] = temp;
+		return j;
+		
+		
+		
+		
+		
+
+		
+		//ATTEMPT 4
+		/*int i = start;
+		int j = end - 1;
+		int pivot = arr[end];
+		int temp = 0;
+		
+		while(i < j) {
+			if(arr[i] <= pivot) {
+				i++;
+			}
+			else {
+				while(i<j) {
+					if(arr[j] >= pivot) {
+						j--;
+					}
+					else {
+						temp = arr[i];
+						arr[i] = arr[j];
+						arr[j] = temp;
+					}
+				}
+			}
+		}
+		temp = arr[i + 1];
+		arr[i + 1] = arr[end];
+		arr[end] = temp;
+		return i + 1;
+		*/
+		
+		
+		
+		
+		//ATTEMPT 1
+		/*int length = arr.length;
+		int pivot = arr[length];
+		int temp = 0;
+		while (start < end) {
+			if(arr[start] > pivot) {
+				if(arr[end] < pivot) {
+					temp = arr[start];
+					arr[start] = arr[end];
+					arr[end] = temp;
+				}
+				else {
+					end--;
+				}
+			}
+			else {
+				start++;
+			}
+		}*/
+		
+		//ATTEMPT 2
+		/*int length = arr.length;
+		int pivot = arr[end];
+		int temp = 0;
+		while (start < end) {
+			if (arr[start] < pivot) {
+				start++;
+				if(start == end) {
+					return start;
+				}
+			}
+			else {
+				while(arr[end] > pivot) {
+					end--;
+				}
+				temp = arr[start];
+				arr[start] = arr[end];
+				arr[end] = temp;
+			}
+		}
+		temp = arr[start + 1];
+		arr[start + 1] = arr[end];
+		arr[end] = temp;
+		return start + 1;
+		
+		 */
+		
+		//ATTEMPT 3
+		/*int pivot = arr[end];
+		int temp = 0;
+		int length = arr.length;
+		while(start < end) {
+			if(arr[start] <= pivot) {
+				start++;
+				if(start == end) {
+					return end;
+				}
+			}
+			else {
+				while (arr[end] >= pivot && start < end) {
+					end--;
+				}
+				temp = arr[start];
+				arr[start] = arr[end];
+				arr[end] = temp;
+			}
+		}
+		temp = arr[start];
+		arr[start] = arr[length-1];
+		arr[length-1] = temp;
+		return start;
+		
+		 */
+		
+		
+		
+		
+	}
 }

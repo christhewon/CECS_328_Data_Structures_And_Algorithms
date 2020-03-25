@@ -26,7 +26,7 @@ public class QuickSelect {
 		int len = arr.length;
 		int loc = len - k;
 		
-		//METHOD 3
+		
 		if (pivIndex == loc) {
 			for (int i = 0; i < k; i++) {
 				maxNums[i] = arr[loc];
@@ -35,9 +35,6 @@ public class QuickSelect {
 			return maxNums;
 		}
 		else {
-			/*if (k == len) {
-				return arr;
-			}*/
 			if (pivIndex < loc) { //pivIndex < loc
 				return QuickSelectMaxNums(arr, pivIndex + 1, max, k);
 			}
@@ -45,8 +42,11 @@ public class QuickSelect {
 				return QuickSelectMaxNums(arr, min, pivIndex - 1, k);
 			}
 		}
-	 
-	 
+		
+		
+		
+		//******Failed Attempts at QuickSelectMax********
+		
 		//METHOD 2
 		/*if (k == pivIndex) {
 			if (k == half) {
@@ -93,8 +93,11 @@ public class QuickSelect {
 		}*/
 	}
 	
+	
+	
+	
 	private int partition(int[] arr, int start, int end) {
-		//LAST ONE
+		//CORRECT
 		int pivot = arr[end];
 		int length = arr.length;
 		int j = 0;      //This is gonna be the location that switched with the pivot
@@ -122,9 +125,12 @@ public class QuickSelect {
 		
 		
 		
-		
-		
 
+		//*********************************Starting here are my failed attempts at partition***************************
+		
+		
+		
+		
 		
 		//ATTEMPT 4
 		/*int i = start;

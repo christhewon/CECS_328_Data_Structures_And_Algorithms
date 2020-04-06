@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Tester {
 	public static void main(String[] args) {
+		//PART A*********************************************
 		System.out.println("Part A:");
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter a positive integer");
@@ -58,6 +59,16 @@ public class Tester {
 			System.out.println(a[i] + ", ");
 		}
 		System.out.println("The average running time for heap sort in nanoseconds for 100 inputs was: " + endTime/100);
+		
+		//PART B**************************************
+		System.out.println("Part B: ");
+		randomNums(a, 10);
+		MaxHeaps.heapSort(a, 10);
+		
+		System.out.println("");
+		for(int i = 0; i < 10; i++) {
+			System.out.println(a[i] + ", ");
+		}
 		
 		
 	}

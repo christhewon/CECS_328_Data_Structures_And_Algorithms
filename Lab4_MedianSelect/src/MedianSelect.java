@@ -32,9 +32,9 @@ public class MedianSelect {
 		System.out.println("");
 		
 		int index = QuickSelectForMed.QuickSelectAbs(diff, 0, len - 1, k); //This quick selects the diff arr and
-																			// places all values with the least abs
-																			 // value before the Kth index that the
-																			  // user inputs and then returns that index
+		// places all values with the least abs
+		// value before the Kth index that the
+		// user inputs and then returns that index
 		ans = new int[index + 1]; // + 1 because the for loop in line 43, i goes to index 2
 
 		/*

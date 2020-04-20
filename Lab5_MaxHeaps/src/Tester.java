@@ -9,10 +9,9 @@ public class Tester {
 		int n = in.nextInt();
 		int[] a = new int[1000];    //Would put new int[n] but later in the code need to test a avg run time for input
 		double startTime;           //size 1000 and we are not allowed to define new arrays
-		double endTime;
-		
-		randomNums(a, n);
-		MaxHeaps.heapSort(a, n);
+		double endTime;             //Changed methods to take in another parameter which was the length of the array
+		randomNums(a, n);           //Now I use an array of size 1000 but use only up to the indexes I need
+		MaxHeaps.heapSort(a, n);    
 		
 		
 		MaxHeaps.maxHeapify(a, 0, 0, n);
@@ -28,49 +27,40 @@ public class Tester {
 		
 		
 	//Testing for average running time with an input size of 1000
-		
+		int totalTime = 0;
+		int heapTime;
+		int selectionTime;
 		n = 1000;
-		
-		//generating 1000 random numbers
-		randomNums(a, n);
-		startTime = System.nanoTime();
-		MaxHeaps.heapSort(a, n);
-		
-		endTime = System.nanoTime() - startTime;
+
+		for(int i = 0; i < 100; i++) {
+			randomNums(a, n);
+			startTime = System.nanoTime();
+			MaxHeaps.heapSort(a, n);
+			endTime = System.nanoTime() - startTime;
+			totalTime += endTime;
+		}
+		heapTime = totalTime/100;
 		
 		for(int i = 0; i < n; i++) {
 			System.out.println(a[i] + ", ");
 		}
-		
-		System.out.println("The average running time for heap sort in nanoseconds for 1000 inputs was: " + endTime/1000);
-		
-		
-	//Testing for average running tim of heap sort with an input size of 100
-		
-		n = 100;
-		
-		//generating 100 random numbers
-		randomNums(a, n);
-		startTime = System.nanoTime();
-		MaxHeaps.heapSort(a, n);
-		endTime = System.nanoTime() - startTime;
-		
-		for(int i = 0; i < n; i++) {
-			System.out.println(a[i] + ", ");
+		System.out.println("The average running time for heap sort in nanoseconds for 1000 inputs was: " + heapTime);
+	
+	//Testing Selection Sort
+		totalTime = 0;
+		for(int i = 0; i < 100; i++) {
+			randomNums(a, n);
+			startTime = System.nanoTime();
+			Tester.selectionSortTime(a, n);
+			endTime = System.nanoTime() - startTime;
+			totalTime += endTime;
 		}
-		System.out.println("The average running time for heap sort in nanoseconds for 100 inputs was: " + endTime/100);
-		
-		//PART B**************************************
-		System.out.println("Part B: ");
-		randomNums(a, 10);
-		MaxHeaps.heapSort(a, 10);
-		
+		selectionTime = totalTime/100;
 		System.out.println("");
-		for(int i = 0; i < 10; i++) {
-			System.out.println(a[i] + ", ");
-		}
+		System.out.println("The average running time for selection sort in nanoseconds for 1000 inputs was: " + selectionTime);
 		
 		
+		System.out.println("Heap time was faster by: " + (selectionTime - heapTime) + " nanoseconds");
 	}
 	
 	/**
@@ -84,6 +74,19 @@ public class Tester {
 			rand = (int)(Math.random() * 200) - 100;
 			a[i] = rand;
 			System.out.print(rand + ", ");
+		}
+	}
+	
+	public static void selectionSortTime(int[] arr, int n) {
+		int length = n;
+		for (int i = 0; i < length-1; i++)
+		{
+			int min = i;
+			for (int j = i+1; j < length; j++) {
+				if (arr[j] < arr[min])
+					min = j;
+			}
+			MaxHeaps.swap(arr, min, i);
 		}
 	}
 }

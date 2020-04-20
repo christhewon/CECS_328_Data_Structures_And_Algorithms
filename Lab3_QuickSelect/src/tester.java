@@ -21,6 +21,7 @@ public class tester {
 		int quickAnswer = quickSelect.QuickSelect(arr,0,n - 1,num);
 		System.out.println(quickAnswer);
 		
+		/*
 		//QuickSelectMax Test
 		System.out.println("Please enter an integer from 1 to the integer you entered earlier");
 		num = input.nextInt();
@@ -29,7 +30,7 @@ public class tester {
 		for (int i = 0; i < num; i++) {
 			System.out.print(maxArr[i] + ", ");
 		}
-		
+		*/
 		
 		/*int[] arr = new int[5];
 		arr[0] = -23;

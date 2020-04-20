@@ -1,7 +1,14 @@
 public class QuickSelect {
-	
+	/**
+	 * 
+	 * @param arr
+	 * @param min
+	 * @param max
+	 * @param k
+	 * @return
+	 */
 	public int QuickSelect(int[] arr, int min, int max,int k) {
-		int pivIndex = partition(arr, min, max);
+		int pivIndex = partitions(arr, min, max);
 		
 		if (k == pivIndex) {
 			return arr[pivIndex];
@@ -19,6 +26,14 @@ public class QuickSelect {
 		}
 	}
 	
+	/**
+	 *
+	 * @param arr
+	 * @param min
+	 * @param max
+	 * @param k
+	 * @return
+	 */
 	public int[] QuickSelectMaxNums(int[] arr, int min, int max,int k) {
 		double half = arr.length/2.00;
 		int pivIndex = partition(arr, min, max);
@@ -94,22 +109,28 @@ public class QuickSelect {
 	}
 	
 	
-	
+	/**
+	 *
+	 * @param arr
+	 * @param start
+	 * @param end
+	 * @return
+	 */
 	
 	private int partition(int[] arr, int start, int end) {
 		//CORRECT
 		int pivot = arr[end];
 		int length = arr.length;
 		int j = 0;      //This is gonna be the location that switched with the pivot
-		int k = end-1;
+		int k = end - 1;
 		int temp = 0;
-		for(int i = 0; i < length-1; i++ ) {
-			if(arr[j] < pivot) { //basically if the number is smaller than the pivot, we dont car and move to next index
+		for (int i = 0; i < length - 1; i++) {
+			if (arr[j] < pivot) { //basically if the number is smaller than the pivot, we dont car and move to next index
 				j++;
 			}
 			else {
 				while (k > j) {              //Now that we have a number greater than the pivot, we want to find a
-					if(arr[k] < pivot) {      //number on the other side of the array that is smaller than the pivot
+					if (arr[k] < pivot) {      //number on the other side of the array that is smaller than the pivot
 						temp = arr[k];         //and swap them
 						arr[k] = arr[j];
 						arr[j] = temp;
@@ -122,14 +143,37 @@ public class QuickSelect {
 		arr[end] = arr[j];               //at j
 		arr[j] = temp;
 		return j;
+	}
+	
+	private int partitions(int[] arr, int start, int end) {
+		//CORRECT
+		int pivot = arr[end];
+		int length = arr.length;
+		int j = 0;      //This is gonna be the location that switched with the pivot
+		int k = end - 1;
+		int temp = 0;
+		while (j < k) { // change to while loop to until j and k cross
+			while (arr[j] < pivot && j < length) { //basically if the number is smaller than the pivot, we dont car and move to next index change to while
+				j++;
+			}
+			
+			while (arr[k] > pivot && k > 0) {              //Now that we have a number greater than the pivot, we want to find a
+				k--;
+			}
+			if (j < k) {      //number on the other side of the array that is smaller than the pivot
+				temp = arr[k];         //and swap them
+				arr[k] = arr[j];
+				arr[j] = temp;
+			}
+			
+		}
+		temp = arr[end];                //All the values to the left of j are less than the pivot, so the pivot goes
+		arr[end] = arr[j];               //at j
+		arr[j] = temp;
+		return j;
 		
 		
-		
-
 		//*********************************Starting here are my failed attempts at partition***************************
-		
-		
-		
 		
 		
 		//ATTEMPT 4
@@ -159,13 +203,13 @@ public class QuickSelect {
 		arr[i + 1] = arr[end];
 		arr[end] = temp;
 		return i + 1;
-		*/
+		*//*
 		
 		
 		
 		
 		//ATTEMPT 1
-		/*int length = arr.length;
+		*//*int length = arr.length;
 		int pivot = arr[length];
 		int temp = 0;
 		while (start < end) {
@@ -182,10 +226,10 @@ public class QuickSelect {
 			else {
 				start++;
 			}
-		}*/
+		}*//*
 		
 		//ATTEMPT 2
-		/*int length = arr.length;
+		*//*int length = arr.length;
 		int pivot = arr[end];
 		int temp = 0;
 		while (start < end) {
@@ -209,10 +253,10 @@ public class QuickSelect {
 		arr[end] = temp;
 		return start + 1;
 		
-		 */
+		 *//*
 		
 		//ATTEMPT 3
-		/*int pivot = arr[end];
+		*//*int pivot = arr[end];
 		int temp = 0;
 		int length = arr.length;
 		while(start < end) {
@@ -236,10 +280,13 @@ public class QuickSelect {
 		arr[length-1] = temp;
 		return start;
 		
-		 */
+		 *//*
 		
 		
 		
 		
+		
+		
+	}*/
 	}
 }

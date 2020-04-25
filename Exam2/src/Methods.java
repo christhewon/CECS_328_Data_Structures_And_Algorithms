@@ -1,5 +1,10 @@
 public class Methods {
 	
+	/**
+	 * Finds the smallest number in any array
+	 * @param arr the array being searched through
+	 * @return the smallest number in the array
+	 */
 	public static int findMins(int[] arr) {
 		int len = arr.length;
 		for(int i = len - 1; i > 0; i--) {
@@ -10,6 +15,12 @@ public class Methods {
 		return 0; //means that no items were moved to the back of the array
 	}
 	
+	/**
+	 * Finds the smallest number in a sorted array where the the first k numbers are shifted to the end using
+	 *  the idea of a binary search
+	 * @param arr the arr being searched
+	 * @return the smallest number in the array
+	 */
 	public static int findMins2(int[] arr) {
 		int len = arr.length;
 		int left = 0;
@@ -34,7 +45,11 @@ public class Methods {
 		return 0;
 	}
 	
-	
+	/**
+	 * Takes a matrix and sorts them into a single array
+	 * @param mat the matrix being sorted into one array
+	 * @return the single sorted array
+	 */
 	public static int[] convergeMatrixSort(int[][] mat) {
 		int rowLen = mat.length;
 		int colLen = mat[0].length;
@@ -57,9 +72,10 @@ public class Methods {
 	
 	
 	/**
-	 *
-	 * @param arr
-	 * @param n
+	 * takes an array and builds it into a max heap, then repeatedly swaps the root with the last element and calls
+	 *  max heapify on the root to get us a max heap again.
+	 * @param arr the array being sorted
+	 * @param n the number of indexes of the array being sorted from 0 to n
 	 */
 	public static void heapSort(int[] arr, int n) {
 		int flag = 0;                //flag will be used to "delete" the last elements of the array
@@ -76,7 +92,7 @@ public class Methods {
 	}
 	
 	/**
-	 *  takes an array and builds a max heap using max heapify
+	 * takes an array and builds a max heap using max heapify
 	 * @param arr the array that is getting built into a max heap
 	 * @param n the number of indexes of the array to be built into a max heap from 0 to n
 	 */

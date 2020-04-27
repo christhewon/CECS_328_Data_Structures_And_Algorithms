@@ -16,8 +16,8 @@ public class Mpss {
 		int min = 0;
 		
 		if (l == r) { // if negative return inf
-			if(arr[0] > 0)
-				return arr[0];
+			if(arr[l] > 0)
+				return arr[l];
 			else {
 				return Integer.MAX_VALUE;
 			}

@@ -17,6 +17,24 @@ public class Node {
 		end = -1;
 	}
 	
+	public Node(String n) {
+		name = n;
+		distance = 0;
+		adjList = new LinkedList<Node>();
+		parent = null;
+		start = -1;
+		end = -1;
+	}
+	
+	public boolean checkName(String n) {
+		if(this.name.equals(n)) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	
 	//Getters
 	public String getName() {
 		return name;

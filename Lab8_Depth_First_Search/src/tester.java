@@ -10,13 +10,9 @@ public class tester {
 		length = input.nextInt();
 		input.nextLine();
 		Node[] nodes = new Node[length];
-		
-	
-		
 		String str = "abcdefghijklmnopqrstuvwxyz";
 		
-		
-		
+		//Creates 26 nodes with names from a-z
 		for(int i = 0; i < nodes.length; i++) {
 			String s = str.substring(i,i+1);
 			nodes[i] = new Node(s);
@@ -28,19 +24,20 @@ public class tester {
 		}
 		System.out.println();
 		
-		////////////////Ask user for adj not comma or spaces
 		String adjIn = "";
 		char letter = '-';
 		Node curAdj;
 		int ascii = -1;
 		int key = -1;
 		
+		//Asks the user to enter the adj nodes for each node in order to create a graph
 		for(int i = 0; i < nodes.length; i++) {
 			curAdj = nodes[i];
 			System.out.println("Please enter all the nodes adjacent to '" + curAdj.getName()
 			 + "' with no spaces or commas");
 			adjIn = input.nextLine();
 			for(int j = 0; j < adjIn.length(); j++) {
+				key = -1;
 				ascii = (int)adjIn.charAt(j);
 				key = binaryAscii(nodes, ascii);
 				if(key != -1) {
@@ -49,8 +46,8 @@ public class tester {
 			}
 		}
 		
-		/*
 		// Testing adj List
+		/*
 		for(int i = 0; i < nodes.length; i++) {
 			Node cur = nodes[i];
 			System.out.println();
@@ -59,9 +56,9 @@ public class tester {
 			}
 		}
 		
-	 */
+	    */
 		
-		//DFS
+		//Running the DFS algorithm
 		LinkedList<Node> topology = new LinkedList<Node>();
 		DepthFirstSearch dfs = new DepthFirstSearch();
 		topology = dfs.DFS(nodes);
@@ -72,42 +69,14 @@ public class tester {
 				System.out.println(curTop.getName() + " " + curTop.getStart() + "/" + curTop.getEnd() + ", ");
 			}
 		}
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		Node nod = new Node("nod");
-		Node nod2 = new Node("nod1");
-		Node nod3 = new Node("nod2");
-		
-		nod.getAdjList().add(nod2);
-		nod.getAdjList().add(nod3);
-		
-		 */
-		
-
-
-		
-		
 	}
 	
 	/**
-	 *
-	 * @param n
-	 * @param key
-	 * @return
+	 * Uses the concept of the Binary Search to go through an array of Nodes to find a node
+	 *  with the name whose character's ascii number is equal to key
+	 * @param n the array of nodes being searched through
+	 * @param key the character ascii value being looked for
+	 * @return the index of the node with the name whose character's ascii number is equal to key
 	 */
 	public static int binaryAscii(Node[] n, int key) {
 		int left = 0;

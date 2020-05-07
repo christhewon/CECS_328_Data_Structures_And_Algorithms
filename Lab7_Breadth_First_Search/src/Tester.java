@@ -61,6 +61,7 @@ public class Tester {
 		}
 		 */
 		
+		//Getting the user to choose a start node
 		Node start = new Node();
 		String choice = "";
 		Scanner input = new Scanner(System.in);

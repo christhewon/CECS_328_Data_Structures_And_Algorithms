@@ -3,6 +3,11 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BFS {
+	
+	/**
+	 * Runs the Breadth First Search algorithm starting at Node v and prints the distance to all other nodes.
+	 * @param v the starting node that is being used to find the distance to all other nodes.
+	 */
 	public static void breadthFirstSearch(Node v) {
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(v);
@@ -21,6 +26,11 @@ public class BFS {
 		}
 	}
 	
+	/**
+	 * Given a Node v, checks if the graph associated with the node if bipartite
+	 * @param v The starting Node of the graph that the bipartite check will be run on
+	 * @return true or false depending on if the graph is bipartite or not
+	 */
 	public static Boolean isBipartite(Node v) {
 		int colorCheck = 1;
 		Queue<Node> q = new LinkedList<Node>();

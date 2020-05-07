@@ -7,6 +7,9 @@ public class Node {
 	private Node parent;
 	private int color;
 	
+	/**
+	 * Constructor for Node
+	 */
 	public Node() {
 		value = "";
 		distance = 0;
@@ -46,12 +49,6 @@ public class Node {
 		this.distance = distance;
 	}
 	
-	/*
-	public void setAdjList(LinkedList<Node> adjList) {
-		this.adjList = adjList;
-	}
-	
-	 */
 	
 	public void setParent(Node parent) {
 		this.parent = parent;

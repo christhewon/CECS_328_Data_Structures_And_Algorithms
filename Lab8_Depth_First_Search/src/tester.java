@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class tester {
 	public static void main(String[] args) {
-		
 		Scanner input = new Scanner(System.in);
 		int length = 0;
 		System.out.println("Please enter the number of vertices you want, 1 - 26");

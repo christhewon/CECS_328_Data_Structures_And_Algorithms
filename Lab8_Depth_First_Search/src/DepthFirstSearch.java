@@ -4,6 +4,11 @@ public class DepthFirstSearch {
 	private static int timer = 1;
 	private static boolean cycle = false;
 	
+	/**
+	 * Runs depth first search on a list of nodes by calling DFSVisit
+	 * @param list the nodes being searched
+	 * @return the topology of the nodes
+	 */
 	public static LinkedList<Node> DFS(Node[] list) {
 		Node cur;
 		Node start = new Node("start");
@@ -20,6 +25,13 @@ public class DepthFirstSearch {
 		return topology;
 	}
 	
+	/**
+	 * Sets the start and end timers at the correct time
+	 *  Visits the nodes adjacent to n and sets their parents to n if they do not have a parent
+	 *   Also checks if there is a cycle or not.
+	 * @param n
+	 * @param link
+	 */
 	public static void DFSVisit(Node n, LinkedList<Node> link) {
 		n.setStart(timer++);
 		LinkedList<Node> list = n.getAdjList();

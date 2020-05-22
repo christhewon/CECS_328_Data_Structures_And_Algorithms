@@ -4,39 +4,47 @@ public class Node {
 	private String name;
 	private int distance;
 	private LinkedList<Node> adjList;
+	private LinkedList<Integer> adjCost;
 	private Node parent;
 	private int start;
 	private int end;
 	
 	public Node() {
 		name = "";
-		distance = 0;
+		distance = 10000;
 		adjList = new LinkedList<Node>();
+		adjCost = new LinkedList<Integer>();
 		parent = null;
 		start = -1;
 		end = -1;
 	}
 	
-	/**
-	 * Constructor with a parameter for the name
-	 * @param n used to set the name of the node
-	 */
 	public Node(String n) {
 		name = n;
-		distance = 0;
+		distance = 10000;
 		adjList = new LinkedList<Node>();
+		adjCost = new LinkedList<Integer>();
 		parent = null;
 		start = -1;
 		end = -1;
 	}
-
+	
+	public boolean checkName(String n) {
+		if(this.name.equals(n)) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 	
 	//Getters
-	
 	public String getName() {
 		return name;
+	}
+	
+	public int getDistance() {
+		return distance;
 	}
 	
 	public LinkedList<Node> getAdjList() {
@@ -55,8 +63,15 @@ public class Node {
 		return end;
 	}
 	
+	public LinkedList<Integer> getAdjCost() {
+		return adjCost;
+	}
 	
 	//Setters
+	
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
 	
 	public void setParent(Node parent) {
 		this.parent = parent;

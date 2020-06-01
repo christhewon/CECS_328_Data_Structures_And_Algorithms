@@ -3,6 +3,7 @@
 
 
 •Labs
+
 	◦ Lab1 - Searches
  
  	◦ Lab2 - Divide and Conquer Algorithms

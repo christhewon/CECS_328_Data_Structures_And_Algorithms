@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a852b092-5331-4094-95a0-58fd533be1dd" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Y0Z612tPXIyjyIP9iFc6lgyfAm" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="searches" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="searches" />
+      <module name="328" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.searches" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a852b092-5331-4094-95a0-58fd533be1dd" name="Default Changelist" comment="" />
+      <created>1582081292948</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582081292948</updated>
+      <workItem from="1582081296408" duration="339000" />
+      <workItem from="1582087012426" duration="5712000" />
+      <workItem from="1582850923910" duration="69000" />
+      <workItem from="1582851021721" duration="3135000" />
+      <workItem from="1583024202349" duration="7000" />
+      <workItem from="1583041760486" duration="22000" />
+      <workItem from="1583041850684" duration="1796000" />
+      <workItem from="1583129538147" duration="1481000" />
+      <workItem from="1583283281064" duration="291000" />
+      <workItem from="1583291185397" duration="77000" />
+      <workItem from="1583461704179" duration="146000" />
+      <workItem from="1583735683399" duration="455000" />
+      <workItem from="1584125304406" duration="646000" />
+      <workItem from="1584134336933" duration="209000" />
+      <workItem from="1585161048021" duration="75000" />
+      <workItem from="1586109716289" duration="1579000" />
+      <workItem from="1587365610644" duration="166000" />
+      <workItem from="1587708593005" duration="147000" />
+      <workItem from="1591032235806" duration="1000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
